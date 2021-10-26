@@ -14,6 +14,8 @@ export const runAppHandler: SaluteHandler = ({ req, res }, dispatch) => {
 }
 
 export const startHandler: SaluteHandler = ({ req, res, session }) => {
+    console.log('session', session)
+
     const keyset = req.i18n(dictionary)
     let responseText: string
 
@@ -60,6 +62,9 @@ export const callPhoneHandler: SaluteHandler = ({ req, res, session }) => {
     res.appendBubble(responseText)
     res.setPronounceText(responseText)
 
+    console.log('accountSid',accountSid)
+    console.log('authToken',authToken)
+    console.log('client',client)
     client.calls.create({
         url: 'http://demo.twilio.com/docs/voice.xml',
         to: session.phone,
