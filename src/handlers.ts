@@ -67,7 +67,7 @@ export const callPhoneHandler: SaluteHandler = ({ req, res, session }) => {
     }, function(err: any, call: any){
         if (err) console.log(err)
         else console.log('call success, SID:', call.sid)
-    }).done()
+    })
 }
 
 export const wrongPhoneNumberHandler: SaluteHandler = ({ req, res }) => {
